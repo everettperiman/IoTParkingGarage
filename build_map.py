@@ -7,7 +7,14 @@ from tkinter import ttk
 
 from ui import *
 
-val = int(input("Enter the garage you would like to monitor: "))
+import sys
+
+args = sys.argv
+print(args)
+if(len(args) < 2):
+	val = int(input("Enter the garage you would like to monitor: "))
+else:
+	val = int(args[-1])
 val = val - 1
 server = DATA(val)
 server.refresh_data()

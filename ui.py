@@ -62,7 +62,7 @@ class CreateGraph():
       #win = window
       win = Tk()
       self.win = win
-
+      self.refresh_delay = 10000
       width = 300
       height = 160
 
@@ -82,7 +82,7 @@ class CreateGraph():
 
       # Create a Button to Disable the Combobox Widget
       #ttk.Button(win, text="Change Color", command=change_color).pack()
-      win.after(100, self.refresh_canvas)
+      win.after(self.refresh_delay, self.refresh_canvas)
       win.mainloop()
 
 
@@ -91,7 +91,7 @@ class CreateGraph():
       server.refresh_data()
       self.data = server.data
       self.write_canvas()
-      self.win.after(100, self.refresh_canvas)
+      self.win.after(self.refresh_delay, self.refresh_canvas)
 
 
    def write_canvas(self):

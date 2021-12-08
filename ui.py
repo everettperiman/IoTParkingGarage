@@ -87,7 +87,7 @@ class CreateGraph():
 
 
    def refresh_canvas(self):
-      server = DATA(0)
+      server = DATA(self.garage_number)
       server.refresh_data()
       self.data = server.data
       self.write_canvas()

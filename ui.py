@@ -87,6 +87,7 @@ class CreateGraph():
 
 
    def refresh_canvas(self):
+      self.write_blank_canvas()
       server = DATA(self.garage_number)
       server.refresh_data()
       self.data = server.data
@@ -113,6 +114,27 @@ class CreateGraph():
             color = "green"
             if data[nodecount]:
                color = "red"
+            rectangle = canvas.create_rectangle(square[0], square_row, square[1], square_row + square_size, fill=color)
+            square[0] += square_size
+            square[1] += square_size
+            nodecount += 1
+         square_row += square_size
+
+   def write_blank_canvas(self):
+      canvas = self.canvas 
+      nodes = self.nodes   
+      data = self.data  
+      row_width = int(math.sqrt(nodes))   
+      square_start = [0, 20]
+      square = square_start
+      square_size = 20
+      square_row = 0
+      nodecount = 0
+
+      while nodecount < nodes:
+         square = [0, 20]
+         for i in range(row_width):
+            color = "black"
             rectangle = canvas.create_rectangle(square[0], square_row, square[1], square_row + square_size, fill=color)
             square[0] += square_size
             square[1] += square_size

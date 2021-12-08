@@ -9,8 +9,8 @@ import time
 import json
 
 # JSON Data setup
-floor_count = 1
-spot_count = 1
+floor_count = 4
+spot_count = 50
 status_range_max = 12*1000 #12M
 status_range_min = 0
 
@@ -18,9 +18,9 @@ time_period = 15*60
 start_time = 1636347447
 
 # Time delay setup
-spot_delay = 1000
+spot_delay = 0
 floor_delay = 0
-loop_delay = 0
+loop_delay = 10
 
 # MQTT setup
 mqtt_ip = "192.168.1.110"
@@ -38,7 +38,7 @@ while True:
 			
 			# Random status values
 			status = random.randint(status_range_min,status_range_max)
-
+			#status = 0
 			# Get current timestamp I dont think this really matters
 			timestamp = int(time.time())
 
@@ -58,3 +58,4 @@ while True:
 			time.sleep(spot_delay)
 		time.sleep(floor_delay)
 	time.sleep(loop_delay)
+	

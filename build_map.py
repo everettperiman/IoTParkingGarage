@@ -6,7 +6,8 @@ from tkinter import *
 from tkinter import ttk
 
 from ui import *
-
+#from get_data import *
+"""
 client = influxdb_client.InfluxDBClient(
    url="http://192.168.1.226:8086",
    token="L5VC97xU3BJwZaFTu8gZkaIL2teFOior9QNG4R4WlBGVuK9U6-TXD4cHMXuKqhlf5DI2YmMGEmp4UhDYhx34FQ==",
@@ -46,4 +47,8 @@ print(data)
 
 for index, i in enumerate(data):
 	CreateGraph(i, index)
-	break
+"""
+
+server = DATA(0)
+server.refresh_data()
+CreateGraph(server.data, 0)

@@ -110,9 +110,9 @@ class CreateGraph():
          for i in range(row_width):
             if nodecount >= nodes:
                break
-            color = "red"
+            color = "green"
             if data[nodecount]:
-               color = "blue"
+               color = "red"
             rectangle = canvas.create_rectangle(square[0], square_row, square[1], square_row + square_size, fill=color)
             square[0] += square_size
             square[1] += square_size

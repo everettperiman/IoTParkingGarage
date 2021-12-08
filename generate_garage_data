@@ -1,0 +1,2 @@
+from tsBNgen import * 
+from tsBNgen.tsBNgen import *

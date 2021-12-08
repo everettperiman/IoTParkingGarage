@@ -24,7 +24,6 @@ class node(object):
 def search_node_list(node_list, node, garage):
     if(node_list):
         for index, i in enumerate(node_list):
-            #print(i)
             if node == i.number and garage == i.garage:
                 return index
     return -1
@@ -32,11 +31,9 @@ def search_node_list(node_list, node, garage):
 
 def on_message(client, userdata, message):
     x = json.loads(message.payload)
-    node_location = search_node_list(global_node_list, x["node"], x["garage"])
-    if (node_location >= 0):
-        global_node_list[node_location].change_status(x["LED"])
-    else:
-        global_node_list.append(node(x))
+    print(x)
+    new_node = node(x)
+    new_node.print_stats()
 
 if __name__ == "__main__":
     global_node = 1

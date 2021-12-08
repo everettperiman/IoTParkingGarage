@@ -9,13 +9,16 @@ import time
 import json
 
 # JSON Data setup
-floor_count = 5
-spot_count = 1#50
+floor_count = 1
+spot_count = 1
 status_range_max = 12*1000 #12M
 status_range_min = 0
 
+time_period = 15*60
+start_time = 1636347447
+
 # Time delay setup
-spot_delay = 0
+spot_delay = 1000
 floor_delay = 0
 loop_delay = 0
 
@@ -31,7 +34,7 @@ while True:
 
 		for spot in range(1,spot_count+1):
 
-			client.connect(server_ip)
+			client.connect(mqtt_ip)
 			
 			# Random status values
 			status = random.randint(status_range_min,status_range_max)

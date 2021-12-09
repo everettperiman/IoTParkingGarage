@@ -7,6 +7,16 @@ import paho.mqtt.client as mqtt
 import random
 import time
 import json
+import sys
+
+
+args = sys.argv
+print(args)
+if(len(args) < 2):
+	flag = 0
+else:
+	flag = 1
+	val = int(args[-1])
 
 # JSON Data setup
 floor_count = 4
@@ -38,6 +48,8 @@ while True:
 			
 			# Random status values
 			status = random.randint(status_range_min,status_range_max)
+			if(flag):
+				status = val
 			#status = 0
 			# Get current timestamp I dont think this really matters
 			timestamp = int(time.time())
@@ -57,5 +69,7 @@ while True:
 			#Setup all of the delays
 			time.sleep(spot_delay)
 		time.sleep(floor_delay)
-	time.sleep(loop_delay)
 	
+	if(flag):
+		break
+	time.sleep(loop_delay)

@@ -78,6 +78,7 @@ class CreateGraph():
       canvas = Canvas(win, width=width, height=height)
       canvas.pack()
       self.canvas = canvas
+      self.write_blank_canvas()
       self.write_canvas()
 
       # Create a Button to Disable the Combobox Widget
